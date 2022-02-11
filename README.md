@@ -36,8 +36,8 @@
 * Adding diverse rarity.
 
 ## Links
-* https://github.com/mikeydgithub/Group_project
-* https://mikeydgithub.github.io/Pokemon-App/
+* https://github.com/AdrianHenry15/Pokemon-App
+* https://adrianhenry15.github.io/Pokemon-App/
 
 ## Webpage
 ![Readmeimage](https://user-images.githubusercontent.com/94988620/153309602-50314ed3-4799-45b9-8863-60ef5ae45c6e.JPG)
