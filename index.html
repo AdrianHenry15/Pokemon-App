@@ -20,19 +20,22 @@
   <nav class="blue-grey darken-2 navsticky">
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo blue-grey-text text-lighten-5">GitPokemon</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-      </ul>
+        <li><a href="#">Connections</a></li>
+        <li><a href="#">Pokemon</a></li>
+        <li><a href="#">Git Back To Us</a></li>
+      </ul>-->
     </div>
   </nav>
 
-  <div>
+  <!--<div>
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="#search-user-form">Search Form</a></li>
+      <li><a href="#">Connections</a></li>
       <li><a href="#">Pokemon</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Git Back To Us</a></li>
     </ul>
-  </div>
+  </div>-->
   <!-- end navigation -->
 
   <!--Header Start-->
@@ -46,10 +49,10 @@
 <!-- User Search Section Start -->
 <div>
   <img src="assets\pictures\mewtwo-pokemon.png" class="mewtwo-pic left-align">
-  <div id="search-container" class="search-container center-align blue-grey darken-1 z-depth-5">
+  <div id="search-container" class="search-container center-align blue-grey darken-1">
     <section id="search-form">
       <form id="search-user-form">
-        <h4><u>Search A For A User</u></h4>
+        <h4><u>Search For Your Pokemon</u></h4>
           <div>
             <input id="search-user" placeholder="Enter user profile here" autocomplete="off" autofocus="true" list="users"/>
             <datalist id="users"></datalist>
@@ -63,12 +66,13 @@
   <!-- User Search Section End -->
 
   <!-- GitHub User and Pokemon Start  -->
-  <div class="pokemon-container blue-grey darken-1 col s6 center-align z-depth-5">
+  <div class="pokemon-container blue-grey darken-1 col s6 center-align">
     <section id="display-windows">
       <div id="user-display-info">
         <div id="repoSearchTerm" class="col s6">
           <div>
-            <h4 id="repoContainerEl"><u>Name of GitHub User:</u><span id="repo-search-term"></span></h4>
+            <h4><u>Name of GitHub User:</u><span></span></h4>
+            <div id="repo-search-term"></div>
             <div id="repos-container"></div>
           </div>
         <div>
@@ -78,7 +82,6 @@
   </div>
   <!-- GitHub User and Pokemon End -->
 
-
   <!-- Reach Out Start -->
   <section id="reach-out" class="contact">
     <h2 class="section-title secondary-border">Reach Out</h2>
@@ -87,10 +90,10 @@
           <h3>GitPokemon</h3>
           <Creators>
             <u>Created By</u><br />
-            Mike Diamond <a href="https://github.com/mikeydgithub">https://github.com/mikeydgithub</a><br />
-            Adrian Henry<a href="https://github.com/AdrianHenry15">https://github.com/AdrianHenry15</a><br />
-            Johnny Williams<a href="https://github.com/jrwj97">https://github.com/jrwj97</a><br />
-            Diego Restrepo<a href="https://github.com/dieres2010">https://github.com/dieres2010</a><br />
+            Mike Diamond<br />
+            Adrian Henry<br />
+            Johnny Williams<br />
+            Diego Restrepo<br />
           </Creators>
       </div>
   <!--Reach Out End-->
@@ -115,6 +118,9 @@
     <h6> Submitted on GitHub with GitBash </h6>
   </footer>
   <!--Footer End-->
+  <audio controls autoplay>
+    <source src="assets/music/relaxing pokemon music sliceup.mp3" type="audio/mpeg">
+  </audio>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/pokemon.js"></script>

@@ -17,21 +17,23 @@ var repoContainerEl = document.querySelector("#repos-container");
 var repoSearchTerm = document.querySelector("#repo-search-term");
 var username = "";
 var lvl1Pokemon = [1, 4, 7, 11, 14, 17, 20, 22, 23, 27, 29, 32, 35, 37, 39, 42, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 74, 84, 92, 129]
-var lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 140, 147]
+var lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 131, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 140, 147]
 var lvl3Pokemon = [3, 6, 9, 25, 31, 34, 38, 45, 62, 65, 68, 71, 73, 76, 78, 80, 82, 87, 89, 91, 84, 95, 97, 99, 101, 103, 105, 106, 107, 108, 110, 112, 113, 114, 115, 117, 119, 121, 122, 123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 139, 141]
-var legendaries = [26, 130, 131, 132, 142, 143, 144, 145, 146, 147, 148, 149, 150]
-
-// Array to store GitHub users history
-var githubUsr = [];
+var legendaries = [26, 130, 132, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
+// Array to store GitHub users history
+var githubUsr = [];
+
 // append an user in the option list for the "Search For Your Pokemon" field
-var createUser = function(user) {
-// append user option to parent users
-$("#users").append("<option value='" + user + "'>");
+var createUser = function (user) {
+
+    // append user option to parent users
+    $("#users").append("<option value='" + user + "'>");
+
 }
 
 // get the user names from localStorage ghUsers to add as users in the list for the "Search for Partner" field
@@ -40,15 +42,15 @@ var usersLs = JSON.parse(localStorage.getItem("ghUsers"));
 // if GitHub users in localStorage
 
 if (usersLs) {
-  // if GitHub users in localStorage create user options
-  var i =0;
-  
-  // then loop over array to load users
-  $.each(usersLs, function() {
-          // asign values from local storage to users array
-          githubUsr[i] = usersLs[i];
-          createUser(githubUsr[i]);
-          i++;
+    // if GitHub users in localStorage create user options
+    var i = 0;
+
+    // then loop over array to load users
+    $.each(usersLs, function () {
+        // asign values from local storage to users array
+        githubUsr[i] = usersLs[i];
+        createUser(githubUsr[i]);
+        i++;
     });
 };
 
@@ -120,12 +122,11 @@ var formSubmitHandler = function (event) {
         getUser(username);
         nameInputEl.value = "";
         addUserName(username);
-    } else {
-        alert("Please enter a GitHub username");
-    }
+    } //else 
+    // alert("Please enter a GitHub username");
+
     console.log(event);
 };
-
 
 var displayUser = function (repos, searchTerm) {
     // clear old content
@@ -185,26 +186,14 @@ var fetchKantoPokemon = () => {
             type: data.types.map((type) => type.type.name).join(', ')
 
         }));
-        function getPokemanId(id) {
-            var result = '';
-            for(var i = 1; i <=lvl1Pokemon; i++) {
-                if(id === lvl1Pokemon){
-                    result += `${pokemon}.${id} = ${id[i]}`
-                }
-            }
-            var randPokeman = pokemon[Math.floor(Math.random() * pokemon.length)]
-            
-            displayPokemon(randPokeman);
-        }
-        getPokemanId()
+
+        var randPokeman = pokemon[Math.floor(Math.random() * pokemon.length)]
+
+        displayPokemon(randPokeman);
+
     });
-    
+
 };
-
-
-function getRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 
 var displayPokemon = (pokeman) => {
@@ -222,3 +211,6 @@ var displayPokemon = (pokeman) => {
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);
+
+
+
