@@ -6,36 +6,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GitPokemon</title>
+  <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 
 <!-- Body Start-->
+
 <body class="blue darken-2">
   <nav class="blue-grey darken-2 navsticky">
     <div class="nav-wrapper">
       <a href="index.html" class="brand-logo blue-grey-text text-lighten-5">GitPokemon</a>
-      <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Connections</a></li>
-        <li><a href="#">Pokemon</a></li>
-        <li><a href="#">Git Back To Us</a></li>
-      </ul>-->
+      </ul>
     </div>
   </nav>
 
-  <!--<div>
+  <div>
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="#">Connections</a></li>
-      <li><a href="#">Pokemon</a></li>
-      <li><a href="#">Git Back To Us</a></li>
+      <li><a href="#search-user-form">Search Form</a></li>
+      <li><a href="#username-pokemon-box">Pokemon</a></li>
+      <li><a href="#contact-form">Contact Us</a></li>
     </ul>
-  </div>-->
+  </div>
   <!-- end navigation -->
 
   <!--Header Start-->
@@ -46,82 +45,84 @@
   </header>
   <!--Header End-->
 
-<!-- User Search Section Start -->
-<div>
-  <img src="assets\pictures\mewtwo-pokemon.png" class="mewtwo-pic left-align">
-  <div id="search-container" class="search-container center-align blue-grey darken-1">
-    <section id="search-form">
-      <form id="search-user-form">
-        <h4><u>Search For Your Pokemon</u></h4>
+  <!-- User Search Section Start -->
+  <div>
+    <img src="assets\pictures\mewtwo-pokemon.png" class="mewtwo-pic left-align">
+    <div id="search-container" class="search-container center-align blue-grey darken-1 z-depth-5">
+      <section id="search-form">
+        <form id="search-user-form">
+          <h4><u>Search A For A User</u></h4>
           <div>
-            <input id="search-user" placeholder="Enter user profile here" autocomplete="off" autofocus="true" list="users"/>
+            <input id="search-user" placeholder="Enter user profile here" autocomplete="off" autofocus="true"
+              list="users" />
             <datalist id="users"></datalist>
             <button id="userSearchBtn"><span>Enter</span></button>
           </div>
-      </form>
+        </form>
         <li class="searchlists" id="searchedUserLi"></li>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
   <!-- User Search Section End -->
 
   <!-- GitHub User and Pokemon Start  -->
-  <div class="pokemon-container blue-grey darken-1 col s6 center-align">
+  <div class="pokemon-container blue-grey darken-1 col s6 center-align z-depth-5" id="username-pokemon-box">
     <section id="display-windows">
       <div id="user-display-info">
         <div id="repoSearchTerm" class="col s6">
           <div>
-            <h4><u>Name of GitHub User:</u><span></span></h4>
-            <div id="repo-search-term"></div>
+            <h4 id="repoContainerEl"><u>Name of GitHub User:</u><span id="repo-search-term"></span></h4>
             <div id="repos-container"></div>
           </div>
-        <div>
-          <div id="pokedex"></div>
-        </div>
+          <div>
+            <div id="pokedex"></div>
+          </div>
     </section>
   </div>
   <!-- GitHub User and Pokemon End -->
+
 
   <!-- Reach Out Start -->
   <section id="reach-out" class="contact">
     <h2 class="section-title secondary-border">Reach Out</h2>
     <div class="contact-info">
-        <div>
-          <h3>GitPokemon</h3>
-          <Creators>
-            <u>Created By</u><br />
-            Mike Diamond <a href="https://github.com/mikeydgithub">https://github.com/mikeydgithub</a><br />
-            Adrian Henry<a href="https://github.com/AdrianHenry15">https://github.com/AdrianHenry15</a><br />
-            Johnny Williams<a href="https://github.com/jrwj97">https://github.com/jrwj97</a><br />
-            Diego Restrepo<a href="https://github.com/dieres2010">https://github.com/dieres2010</a><br />
-          </Creators>
+      <div>
+        <h3>GitPokemon</h3>
+        <Creators>
+          <u>Created By</u><br />
+          Mike Diamond <a href="https://github.com/mikeydgithub">https://github.com/mikeydgithub</a><br />
+          Adrian Henry<a href="https://github.com/AdrianHenry15">https://github.com/AdrianHenry15</a><br />
+          Johnny Williams<a href="https://github.com/jrwj97">https://github.com/jrwj97</a><br />
+          Diego Restrepo<a href="https://github.com/dieres2010">https://github.com/dieres2010</a><br />
+        </Creators>
       </div>
-  <!--Reach Out End-->
-      
-  <!--Contact Form Start -->      
-        <div class="contact-form">
-          <h3>Contact Us</h3>
-          <form>
-            <label for="contact-name">Your Name</label>
-            <input type="text" id="contact-name" placeholder="Your Name" />
-      
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" placeholder="Message"></textarea>
-      
-            <button type="submit">Submit</button>
-          </form>
+      <!--Reach Out End-->
+
+      <!--Contact Form Start -->
+      <div class="contact-form" id="contact-form">
+        <h3>Contact Us</h3>
+        <form>
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" placeholder="Your Name" />
+
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" placeholder="Message"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
   </section>
-  <!--Contact Form End-->  
+  <!--Contact Form End-->
 
   <!--Footer Start-->
   <footer class="footer">
     <h6> Submitted on GitHub with GitBash </h6>
   </footer>
   <!--Footer End-->
-  <audio controls autoplay>
-    <source src="assets/music/relaxing pokemon music sliceup.mp3" type="audio/mpeg">
+  <audio controls autoplay muted>
+    <source src="assets/music/relaxing pokemon music sliceup.mp3" type="audio/mpeg" class="music-player">
   </audio>
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/pokemon.js"></script>
 </body>
