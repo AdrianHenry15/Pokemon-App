@@ -9,27 +9,27 @@
 // 75+= Legendary Pokemon
 
 const pokedex = document.getElementById("pokedex");
-var gitUser = document.getElementById("repo-search-term");
-var searchForm = document.getElementById("search-form");
-var userFormEl = document.querySelector("#search-user-form");
-var nameInputEl = document.querySelector("#search-user");
-var repoContainerEl = document.querySelector("#repos-container");
-var repoSearchTerm = document.querySelector("#repo-search-term");
-var username = "";
-var lvl1Pokemon = [1, 4, 7, 11, 14, 17, 20, 22, 23, 27, 29, 32, 35, 37, 39, 42, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 74, 84, 92, 129]
-var lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 131, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 140, 147]
-var lvl3Pokemon = [3, 6, 9, 25, 31, 34, 38, 45, 62, 65, 68, 71, 73, 76, 78, 80, 82, 87, 89, 91, 84, 95, 97, 99, 101, 103, 105, 106, 107, 108, 110, 112, 113, 114, 115, 117, 119, 121, 122, 123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 139, 141]
-var legendaries = [26, 130, 132, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+let gitUser = document.getElementById("repo-search-term");
+let searchForm = document.getElementById("search-form");
+let userFormEl = document.querySelector("#search-user-form");
+let nameInputEl = document.querySelector("#search-user");
+let repoContainerEl = document.querySelector("#repos-container");
+let repoSearchTerm = document.querySelector("#repo-search-term");
+let username = "";
+let lvl1Pokemon = [1, 4, 7, 11, 14, 17, 20, 22, 23, 27, 29, 32, 35, 37, 39, 42, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 74, 84, 92, 129]
+let lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 131, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 140, 147]
+let lvl3Pokemon = [3, 6, 9, 25, 31, 34, 38, 45, 62, 65, 68, 71, 73, 76, 78, 80, 82, 87, 89, 91, 84, 95, 97, 99, 101, 103, 105, 106, 107, 108, 110, 112, 113, 114, 115, 117, 119, 121, 122, 123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 139, 141]
+let legendaries = [26, 130, 132, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
 // Array to store GitHub users history
-var githubUsr = [];
+let githubUsr = [];
 
 // append an user in the option list for the "Search For Your Pokemon" field
-var createUser = function (user) {
+let createUser = (user) => {
 
     // append user option to parent users
     $("#users").append("<option value='" + user + "'>");
@@ -37,13 +37,13 @@ var createUser = function (user) {
 }
 
 // get the user names from localStorage ghUsers to add as users in the list for the "Search for Partner" field
-var usersLs = JSON.parse(localStorage.getItem("ghUsers"));
+let usersLs = JSON.parse(localStorage.getItem("ghUsers"));
 
 // if GitHub users in localStorage
 
 if (usersLs) {
     // if GitHub users in localStorage create user options
-    var i = 0;
+    let i = 0;
 
     // then loop over array to load users
     $.each(usersLs, function () {
@@ -54,9 +54,9 @@ if (usersLs) {
     });
 };
 
-var getUserRepos = function (user) {
+var getUserRepos = (user) => {
     // format the github api url
-    var apiUrl = "https://api.github.com/users/" + user + "/repos";
+    let apiUrl = "https://api.github.com/users/" + user + "/repos";
     console.log(user)
     // make a get request to url
     fetch(apiUrl)
@@ -80,9 +80,9 @@ var getUserRepos = function (user) {
 
 //getUserRepos();
 
-var getUser = function (user) {
+let getUser = (user) => {
     // format the github api url
-    var apiUrl = "https://api.github.com/users/" + user;
+    let apiUrl = "https://api.github.com/users/" + user;
 
     // make a request to the url
     fetch(apiUrl).then(function (response) {
@@ -93,9 +93,9 @@ var getUser = function (user) {
     });
 };
 
-var addUserName = function (user) {
+let addUserName = (user) => {
 
-    var userExists = false;
+    let userExists = false;
 
     // check if the user already exists
     for (var i = 0; i < githubUsr.length; i++) {
@@ -113,7 +113,7 @@ var addUserName = function (user) {
     }
 };
 
-var formSubmitHandler = function (event) {
+let formSubmitHandler = (event) => {
     event.preventDefault();
     // get value from input element
     username = nameInputEl.value.trim();
@@ -128,7 +128,7 @@ var formSubmitHandler = function (event) {
     console.log(event);
 };
 
-var displayUser = function (repos, searchTerm) {
+let displayUser = (repos, searchTerm) => {
     // clear old content
     repoContainerEl.textContent = "";
     repoSearchTerm.textContent = searchTerm;
@@ -165,9 +165,9 @@ var displayUser = function (repos, searchTerm) {
     }
 };
 
-var fetchKantoPokemon = () => {
+let fetchKantoPokemon = () => {
 
-    var promises = [];
+    const promises = [];
     for (let i = 1; i <= 150; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         // push promise that is returned from doing the fetch and .then
@@ -179,7 +179,7 @@ var fetchKantoPokemon = () => {
     // iterating through each result 
     // with each one of those its gonna transform it into an object in the form of our choosing
     Promise.all(promises).then((results) => {
-        var pokemon = results.map((data) => ({
+        let pokemon = results.map((data) => ({
             name: data.name,
             id: data.id,
             image: data.sprites['front_default'],
@@ -196,9 +196,9 @@ var fetchKantoPokemon = () => {
 };
 
 
-var displayPokemon = (pokeman) => {
+let displayPokemon = (pokeman) => {
     console.log(pokeman);
-    var pokemonHTMLString =
+    let pokemonHTMLString =
         `
     <li>
         <img src="${pokeman.image}"/>
