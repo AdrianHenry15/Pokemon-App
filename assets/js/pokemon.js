@@ -165,7 +165,7 @@ let displayUser = (repos, searchTerm) => {
     }
 };
 
-let fetchKantoPokemon = () => {
+let fetchKantoPokemon = (lvl1Pokemon, lvl2Pokemon, lvl3Pokemon, legendaries) => {
 
     const promises = [];
     for (let i = 1; i <= 150; i++) {
@@ -184,16 +184,13 @@ let fetchKantoPokemon = () => {
             id: data.id,
             image: data.sprites['front_default'],
             type: data.types.map((type) => type.type.name).join(', '),
-            level1: lvl1Pokemon,
-            level2: lvl2Pokemon,
-            level3: lvl3Pokemon,
-            level4: legendaries
+            levels: [lvl1Pokemon, lvl2Pokemon, lvl3Pokemon, legendaries]
 
         }));
 
         var randPokeman = pokemon[Math.floor(Math.random() * pokemon.length)]
 
-        displayPokemon(randPokeman);
+        displayPokemon(randPokeman, levels);
 
     });
 
