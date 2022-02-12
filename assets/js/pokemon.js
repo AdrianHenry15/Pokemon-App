@@ -17,8 +17,8 @@ let repoContainerEl = document.querySelector("#repos-container");
 let repoSearchTerm = document.querySelector("#repo-search-term");
 let username = "";
 let lvl1Pokemon = [1, 4, 7, 11, 14, 17, 20, 22, 23, 27, 29, 32, 35, 37, 39, 42, 43, 46, 48, 50, 52, 54, 56, 58, 60, 63, 66, 69, 74, 84, 92, 129]
-let lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 131, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 140, 147]
-let lvl3Pokemon = [3, 6, 9, 25, 31, 34, 38, 45, 62, 65, 68, 71, 73, 76, 78, 80, 82, 87, 89, 91, 84, 95, 97, 99, 101, 103, 105, 106, 107, 108, 110, 112, 113, 114, 115, 117, 119, 121, 122, 123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 139, 141]
+let lvl2Pokemon = [2, 5, 8, 12, 15, 18, 24, 25, 28, 30, 33, 36, 40, 44, 47, 49, 131, 51, 53, 55, 57, 59, 61, 64, 67, 70, 72, 75, 77, 79, 81, 83, 85, 86, 88, 90, 93, 96, 98, 100, 102, 104, 109, 111, 116, 120, 133, 137, 138, 147]
+let lvl3Pokemon = [3, 6, 9, 25, 31, 34, 38, 45, 62, 65, 68, 71, 73, 76, 78, 80, 82, 87, 89, 91, 84, 95, 97, 99, 101, 103, 105, 106, 107, 108, 110, 112, 113, 114, 115, 117, 119, 121, 122, 123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 139, 140, 141]
 let legendaries = [26, 130, 132, 142, 143, 144, 145, 146, 147, 148, 149, 150]
 
 $(document).ready(function () {
@@ -185,19 +185,21 @@ let fetchKantoPokemon = (lvl1Pokemon, lvl2Pokemon, lvl3Pokemon, legendaries) => 
             image: data.sprites['front_default'],
             type: data.types.map((type) => type.type.name).join(', '),
             levels: [lvl1Pokemon, lvl2Pokemon, lvl3Pokemon, legendaries]
+    
 
         }));
+        
 
         var randPokeman = pokemon[Math.floor(Math.random() * pokemon.length)]
 
-        displayPokemon(randPokeman, levels);
+        displayPokemon(randPokeman, lvl1Pokemon, lvl2Pokemon, lvl3Pokemon, legendaries);
 
     });
 
 };
 
 
-let displayPokemon = (pokeman) => {
+let displayPokemon = (pokeman, levels) => {
     console.log(pokeman);
     let pokemonHTMLString =
         `
@@ -208,6 +210,19 @@ let displayPokemon = (pokeman) => {
     </li>
     `
     pokedex.innerHTML = pokemonHTMLString;
+
+    if (levels[0] === levels.length[32]) {
+        displayPokemon(lvl1Pokemon.id)
+
+    } else if (levels[0] === levels.length[50]) {
+        displayPokemon(lvl2Pokemon.id)
+
+    } else if (levels[0] === levels.length[52]) {
+        displayPokemon(lvl3Pokemon.id)
+
+    } else if (levels[0] === levels.length[12]) {
+        displayPokemon(legendaries.id)
+    }
 };
 
 
