@@ -183,7 +183,11 @@ let fetchKantoPokemon = () => {
             name: data.name,
             id: data.id,
             image: data.sprites['front_default'],
-            type: data.types.map((type) => type.type.name).join(', ')
+            type: data.types.map((type) => type.type.name).join(', '),
+            level1: lvl1Pokemon,
+            level2: lvl2Pokemon,
+            level3: lvl3Pokemon,
+            level4: legendaries
 
         }));
 
